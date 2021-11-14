@@ -3,7 +3,7 @@ package model
 type Color struct {
 	ID     int    `json:"id"`
 	Name   string `json:"name"`
-	Random bool   `json:random`
+	Random bool   `json:"random"`
 }
 
 type ColorResponse struct {

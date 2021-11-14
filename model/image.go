@@ -3,7 +3,7 @@ package model
 type Image struct {
 	ID     int    `json:"id"`
 	URL    string `json:"url"`
-	Random bool   `json:random`
+	Random bool   `json:"random"`
 }
 
 type ImageResponse struct {
