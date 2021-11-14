@@ -1,0 +1,14 @@
+image: golang:1.15.8-alpine3.12
+
+default:
+  tags:
+    - product
+
+stages:
+  - build
+  - test
+
+unit_tests:
+  stage: test
+  script:
+    - go test -v ./...
