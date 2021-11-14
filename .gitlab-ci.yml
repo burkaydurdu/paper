@@ -1,9 +1,5 @@
 image: golang:1.15.8-alpine3.12
 
-default:
-  tags:
-    - product
-
 stages:
   - build
   - test
