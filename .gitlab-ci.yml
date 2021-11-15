@@ -2,9 +2,18 @@ image: golang:1.15.8-alpine3.12
 
 stages:
   - build
+  - lint
   - test
 
 unit_tests:
   stage: test
   script:
     - CGO_ENABLED=0 go test -v ./... -coverprofile=unit_coverage.out -tags=unit
+
+lint:
+  image: golangci/golangci-lint:v1.27.0
+  stage: lint
+  extends: .go-cache
+  allow_failure: true
+  script:
+    - golangci-lint run -v
