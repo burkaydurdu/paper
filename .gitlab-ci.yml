@@ -13,7 +13,6 @@ unit_tests:
 lint:
   image: golangci/golangci-lint:v1.27.0
   stage: lint
-  extends: .go-cache
   allow_failure: true
   script:
     - golangci-lint run -v
