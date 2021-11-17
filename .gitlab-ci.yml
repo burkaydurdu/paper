@@ -4,7 +4,7 @@ stages:
   - build
   - lint
   - test
-  - build-and-push
+  - deploy
 
 build:
   stage: build
@@ -24,14 +24,12 @@ lint:
     - golangci-lint run -v
 
 docker_build_and_deploy:
-  image: docker:lates
+  image: docker:latest
   services:
     - docker:dind
-  stage: build-and-push
+  stage: deploy
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
   script:
     - docker build --pull -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" .
     - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"
-  except:
-    - master
