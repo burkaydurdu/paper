@@ -28,7 +28,7 @@ docker run --rm -p 8080:8080 paper
 ### DockerHub Pull
 
 #### Link:
-![DockerHub Link](https://hub.docker.com/r/openfile/paper)
+[DockerHub Link](https://hub.docker.com/r/openfile/paper)
 
 ```
 docker pull openfile/paper:master
